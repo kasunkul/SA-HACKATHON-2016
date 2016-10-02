@@ -6,7 +6,7 @@
  */
 var Sequelize = require('sequelize');
 var sequelize = require('sequelize')
-    , sequelize = new Sequelize('sa_db', 'root', '', {
+    , sequelize = new Sequelize('sa_db', 'root', 'root', {
       dialect: "mysql",
       port:    3306,
     });

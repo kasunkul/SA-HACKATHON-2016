@@ -12,7 +12,8 @@ var Relationship = function() {
     //Models.User.belongsTo(Models.UserRole)
     //Models.Department.belongsToMany(Models.Faculty,{through: 'DepartmentFaculty'})
     //Models.Faculty.belongsToMany(Models.Department,{through: 'DepartmentFaculty'})
-
+    Models.Order.belongsToMany(Models.Food, {through: 'OrderFood'});
+    Models.Food.belongsToMany(Models.Order, {through: 'OrderFood'});
 
     connection
         .sync()
