@@ -6,5 +6,6 @@
 var Models = {};
 
 Models.User = require('./entity/User');
+Models.Food = require('./entity/Food');
 
 module.exports = Models;
