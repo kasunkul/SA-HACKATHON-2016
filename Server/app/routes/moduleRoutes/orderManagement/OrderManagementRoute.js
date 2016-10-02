@@ -1,28 +1,45 @@
+/**
+ * Created by pasindu on 10/2/16.
+ */
 var express = require('express');
 var router = express.Router();
 var ControllerMap = require('../../../Controller/ControllerMap');
+
 var OrderController = ControllerMap.OrderController;
 
+/*
+ * order insert service
+ */
+router.post('/', function(req, res, next) {
+    OrderController.create(req.body, res);
+});
 
+/*
+ * order update service
+ */
+router.put('/', function(req, res, next) {
+    OrderController.update(req.body, req.query.id, res);
+});
+
+/*
+ * order delete service
+ */
+router.delete('/:id', function(req, res, next) {
+    OrderController.delete(req.params.id, res);
+});
+
+/*
+ * get all the order service
+ */
 router.get('/', function(req, res, next) {
     OrderController.get(res);
 });
 
-router.post('/create', function(req, res, next) {
-    console.log(req.body);
-    OrderController.create(req.body, res);
-});
-
-router.put('/', function(req, res, next) {
-    OrderController.update(req.body, res);
-});
-
-router.delete('/', function(req, res, next) {
-    OrderController.delete(req.body, res);
-});
-
+/*
+ * get order items by id
+ */
 router.get('/:id', function(req, res, next) {
-    OrderController.getOrder(req.params.id, res);
+    OrderController.getSeperately(req.params.id, res);
 });
 
 module.exports = router;
