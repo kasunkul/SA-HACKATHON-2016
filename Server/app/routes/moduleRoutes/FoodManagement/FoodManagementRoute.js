@@ -17,15 +17,15 @@ router.post('/', function(req, res, next) {
 /*
  * food update service
  */
-router.put('/', function(req, res, next) {
-    FoodController.update(req.body, req.query.id, res);
+router.put('/:id', function(req, res, next) {
+    FoodController.update(req.body, req.params.id, res);
 });
 
 /*
  * food delete service
  */
-router.delete('/', function(req, res, next) {
-    FoodController.delete(req.query.id, res);
+router.delete('/:id', function(req, res, next) {
+    FoodController.delete(req.params.id, res);
 });
 
 /*
