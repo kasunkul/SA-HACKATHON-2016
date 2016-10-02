@@ -17,12 +17,13 @@ function FoodController() {
     /*
      * update food items
      */
-    this.update = function(foodInstance, foodId, res) {
-        Food.Find({
+    this.update = function(foodInstance, res) {
+        Food.find({
             where: {
                 id: foodInstance.id
             }
         }).then(function(data) {
+            console.log("****************"+data);
             if (data) {
                 data.update({
                     qty: foodInstance.qty,

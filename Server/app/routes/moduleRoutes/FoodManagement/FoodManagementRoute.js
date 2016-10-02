@@ -17,8 +17,8 @@ router.post('/', function(req, res, next) {
 /*
  * food update service
  */
-router.put('/:id', function(req, res, next) {
-    FoodController.update(req.body, req.params.id, res);
+router.put('/', function(req, res, next) {
+    FoodController.update(req.body, res);
 });
 
 /*
