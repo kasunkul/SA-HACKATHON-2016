@@ -7,4 +7,5 @@ var Controllers = {};
 
 Controllers.UserController = require('./ModuleControllers/UserController');
 Controllers.OrderController = require('./ModuleControllers/OrderController');
+Controllers.FoodController = require('./ModuleControllers/FoodController');
 module.exports = Controllers;
