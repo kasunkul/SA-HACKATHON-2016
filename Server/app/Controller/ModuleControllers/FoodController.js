@@ -6,13 +6,13 @@ var Food = Module.Food;
 
 function FoodController() {
     /*
-    * get all the food items
+     * get all the food items
      */
     this.get = function(res) {
         Food.findAll().then(function(data) {
             res.send(data);
         });
-    }
+    };
 
     /*
      * update food items
@@ -34,7 +34,7 @@ function FoodController() {
                     res.send(result);
                 });
             }
-        })
+        });
     }
 
     /*
@@ -42,7 +42,7 @@ function FoodController() {
      */
     this.create = function(foodInstance, res) {
         Food.create(foodInstance).then(function(data) {
-           res.send(data);
+            res.send(data);
         });
     }
 

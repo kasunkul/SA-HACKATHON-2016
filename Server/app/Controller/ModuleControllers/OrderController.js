@@ -1,68 +1,76 @@
 /**
- * Created by User on 9/18/2016.
- * Developer :- Pasindu
+ * Created by pasindu on 10/2/16.
  */
 var Module = require('../../models/Models');
 var Order = Module.Order;
 
-
-OrderController = function() {
-
+function OrderController() {
+    /*
+     * get all order
+     */
     this.get = function(res) {
         Order.findAll().then(function(data) {
             res.send(data);
         });
     };
 
+    /*
+     * update order
+     */
+    this.update = function(OrdertInstance, res) {
+        Order.Find({
+            where: {
+                id: OrdertInstance.id
+            }
+        }).then(function(data) {
+            if (data) {
+                data.update({
+                    orderPayment: OrdertInstance.orderPayment,
+                    orderCustomerName: OrdertInstance.orderCustomerName,
+                    oderStatus: OrdertInstance.oderStatus
+                }).then(function(result) {
+                    res.send(result);
+                });
+            }
+        });
+    };
+
+    /*
+     * insert order
+     */
     this.create = function(OrdertInstance, res) {
         Order.create(OrdertInstance).then(function(data) {
             res.send(data);
         });
     };
 
-    this.update = function(OrdertInstance, res) {
-        Order.update({
-            orderPayment: OrdertInstance.orderPayment,
-            orderCustomerName: OrdertInstance.orderCustomerName,
-            oderStatus: OrdertInstance.oderStatus,
-        }, {
-            where: {
-                id: OrdertInstance.id
-            }
-        }).then(function(data) {
-            res.send(data);
-        });
-    };
-
-    this.delete = function(StudentInstance, res) {
-        Order.destroy({
-            where: {
-                id: OrdertInstance.id
-            }
-        }).then(function(err, data) {
-            if (err) {
-                res.send({
-                    status: 400,
-                    message: "Error goig on"
-                });
-            } else {
-                res.send({
-                    status: 200,
-                    message: "successfully deleted"
-                });
-            }
-        });
-    };
-
-    this.getOrder = function(OrderNo, res) {
+    /*
+     * delete order
+     */
+    this.delete = function(orderId, res) {
         Order.find({
             where: {
-                id: OrderNo
+                id: orderId
+            }
+        }).then(function(OrdertInstance) {
+            OrdertInstance.destroy();
+        }).then(function(result) {
+            res.send(result);
+        });
+    };
+
+    /*
+     * get food order
+     */
+    this.getSeperately = function(orderId, res) {
+        Order.findAll({
+            where: {
+                id: orderId
             }
         }).then(function(data) {
             res.send(data);
         });
     };
-};
+}
 
 module.exports = new OrderController();
