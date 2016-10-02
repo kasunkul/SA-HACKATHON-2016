@@ -42,6 +42,7 @@ function FoodController() {
      * insert food items
      */
     this.create = function(foodInstance, res) {
+        //if the image excist
         if(foodInstance.image) {
             var path = this.imageUploader(foodInstance);
             foodInstance.image = path.path;
