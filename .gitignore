@@ -1,0 +1,12 @@
+Client/node_modules
+Client/dist
+Client/.tmp
+Client/.sass-cache
+Client/bower_components
+
+./idea
+Server/node_modules/
+Server/app/modules/Connection.js
+Server/.idea
+/Client/nbproject/private/
+/Server/nbproject/private/
