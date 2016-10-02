@@ -1,6 +1,6 @@
 /**
  * Created by User on 9/18/2016.
- * Developer :- Kasun
+ * Developer :- Pasindu
  */
 var Module = require('../../models/Models');
 var Order = Module.Order;
@@ -24,7 +24,7 @@ OrderController = function() {
         Order.update({
             orderPayment: OrdertInstance.orderPayment,
             orderCustomerName: OrdertInstance.orderCustomerName,
-            oderStatus: OrdertInstance.OrdertInstance,
+            oderStatus: OrdertInstance.oderStatus,
         }, {
             where: {
                 id: OrdertInstance.id
@@ -35,7 +35,7 @@ OrderController = function() {
     };
 
     this.delete = function(StudentInstance, res) {
-        Student.destroy({
+        Order.destroy({
             where: {
                 id: OrdertInstance.id
             }
@@ -55,7 +55,7 @@ OrderController = function() {
     };
 
     this.getOrder = function(OrderNo, res) {
-        Student.find({
+        Order.find({
             where: {
                 id: OrderNo
             }
