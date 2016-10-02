@@ -9,7 +9,7 @@
 var Sequelize = require('sequelize');
 var connection  = require('./../Connection');
 
-var Food = connection.define('User', {
+var Food = connection.define('food', {
     type: Sequelize.STRING,
     qty: Sequelize.STRING,
     price: Sequelize.DOUBLE,
